@@ -1,0 +1,22 @@
+{
+  "name": "with-fs-cache",
+  "version": "0.1.0",
+  "description": "Add a cache to any function.",
+  "main": "index.js",
+  "module": "main.js",
+  "jsnext:main": "main.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "author": "rakannimer",
+  "license": "ISC",
+  "dependencies": {
+    "cache-manager": "^2.9.0",
+    "cache-manager-fs": "^1.0.6",
+    "esm": "^3.0.74"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.0"
+  }
+}
