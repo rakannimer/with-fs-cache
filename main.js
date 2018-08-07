@@ -5,7 +5,7 @@ const FS_CACHE_PATH = ".with-fs-cache/";
 const TTL = 60 * 60; // Seconds
 const MAX_SIZE = 1000 * 1000 * 1000;
 
-const DEFAULT_CACHE_CONFIG = {
+export const DEFAULT_CACHE_CONFIG = {
   path: FS_CACHE_PATH,
   ttl: TTL,
   maxsize: MAX_SIZE
@@ -78,12 +78,21 @@ export const clearFsCache = async () => {
 export const withFsCache = async (
   key,
   method,
-  { onCacheMiss, onCacheHit } = {
+  {
+    onCacheMiss,
+    onCacheHit,
+    path = FS_CACHE_PATH,
+    ttl = TTL,
+    maxsize = MAX_SIZE
+  } = {
     onCacheHit: () => {},
-    onCacheMiss: () => {}
+    onCacheMiss: () => {},
+    path: FS_CACHE_PATH,
+    ttl: TTL,
+    maxsize: MAX_SIZE
   }
 ) => {
-  const cache = await initCache();
+  const cache = await initCache({ path, ttl, maxsize });
   const res = await cache.get(key);
   if (res === null) {
     onCacheMiss();
@@ -95,13 +104,3 @@ export const withFsCache = async (
     return res;
   }
 };
-
-// const main = async () => {
-//   await withFsCache("hasssaasdsdsd", async () => {
-//     console.log("Hello");
-//   });
-// };
-
-// (async () => {
-//   await main();
-// })();

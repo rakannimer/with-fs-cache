@@ -1,6 +1,6 @@
 {
   "name": "with-fs-cache",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Add a cache to any function.",
   "main": "index.js",
   "module": "main.js",
@@ -16,6 +16,10 @@
     "cache-manager-fs": "^1.0.6",
     "esm": "^3.0.74"
   },
+  "files": [
+    "index.js",
+    "main.js"
+  ],
   "devDependencies": {
     "prettier": "^1.14.0"
   }
