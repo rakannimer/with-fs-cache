@@ -1,5 +1,5 @@
 const assert = require("assert");
-const { withFsCache, clearFsCacheAt } = require("./index");
+const { withFsCache, clearFsCacheAt } = require("../dist/index.cjs");
 
 const testWithVoidReturningMethod = async () => {
   let functionCallCount = 0;

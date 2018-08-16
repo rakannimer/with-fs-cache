@@ -1,6 +1,6 @@
 import * as fs from "fs";
 // @ts-ignore
-import { default as mkdirp } from "mkdirp";
+import mkdirp from "mkdirp";
 
 import { PATH_TO_CACHE, FS_CACHE_PATH_DIR } from "./constants";
 

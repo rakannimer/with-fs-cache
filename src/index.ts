@@ -1,22 +1,25 @@
 // @ts-ignore
-import * as LRU from "lru-cache";
+import LRU from "lru-cache";
 // @ts-ignore
-import { default as mkdirp } from "mkdirp";
-//@ts-ignore
-import { default as memoize } from "lodash.memoize";
+import mkdirp from "mkdirp";
 
 import { DEFAULT_LRU_CACHE_CONFIG, FS_CACHE_PATH_DIR } from "./constants";
 import { isPromise } from "./utils";
 
 import { loadCache, writeCache } from "./cache-fs-plugin";
 
-export const initCache = memoize((lruConfig = DEFAULT_LRU_CACHE_CONFIG) => {
-  const cache = new LRU(lruConfig);
-  loadCache(cache);
-  writeCache(cache);
+let cacheInstance: null | typeof LRU = null;
+
+export const initCache = (lruConfig = DEFAULT_LRU_CACHE_CONFIG) => {
+  if (cacheInstance !== null) {
+    return cacheInstance;
+  }
+  cacheInstance = new LRU(lruConfig);
+  loadCache(cacheInstance);
+  writeCache(cacheInstance);
   mkdirp(FS_CACHE_PATH_DIR);
-  return cache;
-});
+  return cacheInstance;
+};
 
 export const clearFsCacheAt = (key: any) => {
   const cache = initCache();
