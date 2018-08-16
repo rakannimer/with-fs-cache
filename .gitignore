@@ -1,2 +1,6 @@
-node_modules
+.rpt2_cache
 .with-fs-cache
+build
+dist
+node_modules
+
