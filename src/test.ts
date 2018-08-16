@@ -80,7 +80,27 @@ const testWithArrayReturningMethod = async () => {
   assert(s(resultFromSecondCall) === s(resultFromFirstCall));
 };
 
+const testSyncMethod = () => {
+  let functionCallCount = 0;
+  clearFsCacheAt("a");
+  const resultFromFirstCall = withFsCache("a", () => {
+    functionCallCount += 1;
+    return [{ someData: "1" }, "b", 2];
+  });
+  const resultFromSecondCall = withFsCache("a", () => {
+    functionCallCount += 1;
+    return [{ someData: "1" }, "b", 2];
+  });
+  clearFsCacheAt("a");
+  const s = JSON.stringify;
+  assert(functionCallCount === 1);
+  assert(s(resultFromSecondCall) === s(resultFromFirstCall));
+};
+
 const main = async () => {
+  testSyncMethod();
+  console.log(`✅ Sync: Ok.`);
+
   await testWithVoidReturningMethod();
   console.log(`✅ Void: Ok.`);
   await testWithNumberReturningMethod();
