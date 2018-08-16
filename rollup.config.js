@@ -3,11 +3,11 @@ import typescript from "rollup-plugin-typescript2";
 export default {
   input: "src/index.ts",
   output: [
-    {
-      file: "dist/index.umd.js",
-      format: "umd",
-      name: "ReactGoogleCharts"
-    },
+    // {
+    //   file: "dist/index.umd.js",
+    //   format: "umd",
+    //   name: "ReactGoogleCharts"
+    // },
     {
       file: "dist/index.esm.js",
       format: "esm"
@@ -17,7 +17,7 @@ export default {
       format: "cjs"
     }
   ],
-  external: ["lru-cache", "mkdirp"],
+  external: ["lru-cache", "mkdirp", "lodash.memoize", "fs"],
   plugins: [
     typescript({
       typescript: require("typescript"),
