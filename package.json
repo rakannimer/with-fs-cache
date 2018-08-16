@@ -1,11 +1,12 @@
 {
   "name": "with-fs-cache",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Add a cache to any function.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "jsnext:main": "dist/index.esm.js",
   "umd": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "test": "tsc && node build/test.js",
