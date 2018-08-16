@@ -32,10 +32,6 @@ braces@^1.8.2:
     preserve "^0.2.0"
     repeat-element "^1.1.2"
 
-esm@^3.0.74:
-  version "3.0.77"
-  resolved "https://registry.npmjs.org/esm/-/esm-3.0.77.tgz#9c81e3f4c8e422b86d525d0d365665825af8dfae"
-
 estree-walker@^0.5.2:
   version "0.5.2"
   resolved "https://registry.npmjs.org/estree-walker/-/estree-walker-0.5.2.tgz#d3850be7529c9580d815600b53126515e146dd39"
