@@ -1,6 +1,6 @@
 {
   "name": "with-fs-cache",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Add a cache to any function.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -20,8 +20,7 @@
     "mkdirp": "^0.5.1"
   },
   "files": [
-    "index.js",
-    "main.js"
+    "dist/*"
   ],
   "devDependencies": {
     "prettier": "^1.14.0",
