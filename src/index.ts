@@ -8,11 +8,9 @@ import { isPromise } from "./utils";
 
 import { loadCache, writeCache } from "./cache-fs-plugin";
 
-let cacheInstance: null | typeof LRU = null;
-
 export const initCache = memoize(
   (lruConfig = DEFAULT_LRU_CACHE_CONFIG) => {
-    cacheInstance = new LRU(lruConfig);
+    const cacheInstance = new LRU(lruConfig);
     mkdirp(FS_CACHE_PATH_DIR);
     loadCache(cacheInstance);
     return cacheInstance;
