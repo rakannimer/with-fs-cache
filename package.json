@@ -1,19 +1,22 @@
 {
   "name": "with-fs-cache",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Add a cache to any function.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "jsnext:main": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "license": "GPL-3.0-only",
   "scripts": {
     "build": "rollup -c",
     "test": "tsc && node build/test.js",
     "prepublish": "yarn build && yarn test"
   },
   "keywords": [],
-  "author": "rakannimer",
-  "license": "ISC",
+  "author": {
+    "name": "rakannimer",
+    "email": "rakannimer@gmail.com"
+  },
   "dependencies": {
     "lodash.memoize": "^4.1.2",
     "lru-cache": "^4.1.3",
